@@ -1,60 +1,60 @@
 """
+    note:
+    all input is stored as 2 data types, a str (*_str) and a float (*)
+    this is so that after the computation is complete, the original
+    exact user input can be showed when answer is displayed
+
     show welcome message
 
-    convert mi to km:
-    get user input and write to a variable (mi)
-    store as float to support decimal precision as input
-    perform operation (*1.6) and write to new variable (km)
-    remove extra decimals and truncate to a precision of 2
-    print and format data while removing trailing zeros (see note)
+    convert miles to kilometers:
+    print unit message and center, then new line
+    get user input and write to a variable (miles_str)
+    convert to float to support decimal precision as input (miles)
+    perform operation (*1.6) and write to new variable (kilometers)
+    print and format answer to fixed point notation of 2 points
+    as well as use the thousands separator ('{:,.2f}'.format())
+    print new line
 
-    convert f to c:
-    get user input and write to a variable (fahrenheit)
-    store as float to support decimal precision as input
+    convert fahrenheit to celsius:
+    print unit message and center, then new line
+    get user input and write to a variable (fahrenheit_str)
+    convert to float to support decimal precision as input (fahrenheit)
     perform operation ((F-32)*5/9) and write to new variable (celsius)
-    remove extra decimals and truncate to a precision of 2
-    print and format data while removing trailing zeros (see note)
+    print and format answer to fixed point notation of 2 points
+    as well as use the thousands separator ('{:,.2f}'.format())
+    print new line
 
-    convert gal to L:
-    get user input and write to a variable (gal)
-    store as float to support decimal precision as input
+    convert gallons to liters:
+    print unit message and center, then new line
+    get user input and write to a variable (gallons_str)
+    convert to float to support decimal precision as input (gallons)
     perform operation (*3.9) and write to new variable (liters)
-    remove extra decimals and truncate to a precision of 2
-    print and format data while removing trailing zeros (see note)
+    print and format answer to fixed point notation of 2 points
+    as well as use the thousands separator ('{:,.2f}'.format())
+    print new line
 
-    convert lb to kg:
-    get user input and write to a variable (lb)
-    store as float to support decimal precision as input
-    perform operation (*0.45) and write to new variable (kg)
-    remove extra decimals and truncate to a precision of 2
-    print and format data while removing trailing zeros (see note)
+    convert pounds to kilograms:
+    print unit message and center, then new line
+    get user input and write to a variable (pounds_str)
+    convert to float to support decimal precision as input (pounds)
+    perform operation (*0.45) and write to new variable (kilograms)
+    print and format answer to fixed point notation of 2 points
+    as well as use the thousands separator ('{:,.2f}'.format())
+    print new line
 
-    convert in to cm:
-    get user input and write to a variable (inches)
-    store as float to support decimal precision as input
-    perform operation (*2.54) and write to new variable (cm)
-    remove extra decimals and truncate to a precision of 2
-    print and format data while removing trailing zeros (see note)
+    convert inches to centimeters:
+    print unit message and center, then new line
+    get user input and write to a variable (inches_str)
+    convert to float to support decimal precision as input (inches)
+    perform operation (*2.54) and write to new variable (centimeters)
+    print and format answer to fixed point notation of 2 points
+    as well as use the thousands separator ('{:,.2f}'.format())
+    print new lines
 
     say goodbye to our amazing user
 
-    NOTE: I noticed that when a user inputs an integer number, and it
-    gets converted to a float, it adds extra trailing zeros. For example
-    an input of 100 would be displayed as either 100.0 or 100.00 depending
-    on the desired fixed point. To fix this while still using functions
-    we learned in class, I looked up the Python documentation of the
-    format() function. I then realized that one of the arguments could
-    be used to get rid of trailing zeros, however it could not be used
-    with fixed-point notation ('.2f'). To counter this, for all of the
-    input, before I display it, I get rid of the extra precision, which
-    is returned as a str, so I convert it back to a float, and then
-    used format() again to get rid of any trailing, non-placeholder zeros
-    if there were any. It also uses the ',' thousands separator. Here are
-    the python 3 docs on the format() function:
+    Here are the python 3 docs on the format() function:
     https://docs.python.org/3/library/string.html#format-specification-mini-language
-    ALSO, I know were are not supposed to use short variable names, but
-    since this is a conversion program and all of the units have universal
-    abbreviations, I will try to use those instead.
 """
 
 # display welcome message
@@ -62,73 +62,66 @@ print('Hi! This program will convert from imperial units to the metric system.\n
       "Just put in the value that you want, and then hit enter! It's simple!\n"
       '{:-^69}\n'.format(' Code by Ryan Riccio '))
 
-# convert mi to km
+
+# ***convert miles to kilometers***
 print('{:^69}'.format('***MILES TO KILOMETERS***'))
 
-# ask for user input (use float to handle decimal precision as input), compute conversion
-mi = float(input('Enter the distance in miles: '))
-km = mi * 1.6
+# ask for user input (float handles decimal input), compute
+miles_str = input('Enter the distance in miles: ')
+miles = float(miles_str)
+kilometers = miles * 1.6
 
-# truncate data
-mi = float('{:.2f}'.format(mi))     # format() converts to str, str is converted back to float
-km = float('{:.2f}'.format(km))
+# print data, separate thousands, convert to fixed point
+print('{} miles is equal to {:,.2f} kilometers.\n'.format(miles_str, kilometers))
 
-# print data, remove trailing zeros, and separate thousands
-print('{:,g} miles is equal to {:,g} kilometers.\n'.format(mi, km))
 
-# convert f to c
+# ***convert f to c***
 print('{:^69}'.format('***FAHRENHEIT TO CELSIUS***'))
 
-# ask for user input (use float to handle decimal precision as input), compute conversion
-fahrenheit = float(input('Enter the degrees in Fahrenheit: '))
+# ask for user input (float handles decimal input), compute
+fahrenheit_str = input('Enter the degrees in Fahrenheit: ')
+fahrenheit = float(fahrenheit_str)
 celsius = (fahrenheit - 32) * 5 / 9
 
-# truncate data
-fahrenheit = float('{:.2f}'.format(fahrenheit))     # format() converts to str, str is converted back to float
-celsius = float('{:.2f}'.format(celsius))
+# print data, separate thousands, convert to fixed point
+print('{}\xb0F is equal to {:,.2f}\xb0C.\n'.format(fahrenheit_str, celsius))
 
-# print data, remove trailing zeros, and separate thousands (\xb0 is the hex value of the degree symbol)
-print('{:,g}\xb0F is equal to {:,g}\xb0C.\n'.format(fahrenheit, celsius))
 
-# convert gal to L
+# ***convert gallons to L***
 print('{:^69}'.format('***GALLONS TO LITERS***'))
 
-# ask for user input (use float to handle decimal precision as input), compute conversion
-gal = float(input('Enter the amount of gallons: '))
-liters = gal * 3.9
+# ask for user input (float handles decimal input), compute
+gallons_str = input('Enter the amount of gallons: ')
+gallons = float(gallons_str)
+liters = gallons * 3.9
 
-# truncate data
-gal = float('{:.2f}'.format(gal))     # format() converts to str, str is converted back to float
-liters = float('{:.2f}'.format(liters))
+# print data, separate thousands, convert to fixed point
+print('{} gallons is equal to {:,.2f} liters.\n'.format(gallons_str, liters))
 
-# print data, remove trailing zeros, and separate thousands
-print('{:,g} gallons is equal to {:,g} liters.\n'.format(gal, liters))
 
-# convert lb to kg
+# ***convert pounds to kilograms***
 print('{:^69}'.format('***POUNDS TO KILOGRAMS***'))
 
-# ask for user input (use float to handle decimal precision as input), compute conversion
-lb = float(input('Enter the weight in pounds: '))
-kg = lb * 0.45
+# ask for user input (float handles decimal input), compute
+pounds_str = input('Enter the weight in pounds: ')
+pounds = float(pounds_str)
+kilograms = pounds * 0.45
 
-# truncate data
-lb = float('{:.2f}'.format(lb))     # format() converts to str, str is converted back to float
-kg = float('{:.2f}'.format(kg))
+# print data, separate thousands, convert to fixed point
+print('{} pounds is equal to {:,.2f} kilograms.\n'.format(pounds_str, kilograms))
 
-# print data, remove trailing zeros, and separate thousands
-print('{:,g} pounds is equal to {:,g} kilograms.\n'.format(lb, kg))
 
-# convert in to cm
+# ***convert in to centimeters***
 print('{:^69}'.format('***INCHES TO CENTIMETERS***'))
 
-# ask for user input (use float to handle decimal precision as input), compute conversion
-inches = float(input('Enter the length in inches: '))
-cm = inches * 2.54
+# ask for user input (float handles decimal input), compute
+inches_str = input('Enter the length in inches: ')
+inches = float(inches_str)
+centimeters = inches * 2.54
 
-# truncate data
-inches = float('{:.2f}'.format(inches))     # format() converts to str, str is converted back to float
-cm = float('{:.2f}'.format(cm))
+# print data, separate thousands, convert to fixed point
+print('{} inches is equal to {:,.2f} centimeters.\n\n'.format(inches_str, centimeters))
 
-# print data, remove trailing zeros, and separate thousands
-print('{:,g} inches is equal to {:,g} centimeters.\n'.format(inches, cm))
 
+# say goodbye
+print('Thanks for using the program! Hope it worked well!\n\n')
