@@ -1,0 +1,37 @@
+{
+    "fah_cel": {
+        "BaseUnit": "fahrenheit",
+        "ConvUnit": "celsius",
+        "Factor": 0,
+        "List": "fah_cel_list",
+        "Range": "fah_range"
+    },
+    "mi_km": {
+        "BaseUnit": "miles",
+        "ConvUnit": "kilometers",
+        "Factor": 1.6,
+        "List": "mi_km_list",
+        "Range": "norm_range"
+    },
+    "gal_lit": {
+        "BaseUnit": "gallons",
+        "ConvUnit": "liters",
+        "Factor": 3.9,
+        "List": "gal_lit_list",
+        "Range": "norm_range"
+    },
+    "lb_kg": {
+        "BaseUnit": "pounds",
+        "ConvUnit": "kilograms",
+        "Factor": 0.45,
+        "List": "lb_kg_list",
+        "Range": "norm_range"
+    },
+    "in_cm": {
+        "BaseUnit": "inches",
+        "ConvUnit": "centimeters",
+        "Factor": 2.54,
+        "List": "in_cm_list",
+        "Range": "norm_range"
+    }
+}
