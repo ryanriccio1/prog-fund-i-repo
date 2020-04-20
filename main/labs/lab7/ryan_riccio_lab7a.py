@@ -3,6 +3,14 @@ try:
     from tabulate import tabulate
 except ImportError:
     print("ERROR: Tabulate module not located. Future errors may occur.")
+
+    # backup table printer
+    def tabulate(table_data, headers, **kwargs):
+        print(headers[0] + "\t" + headers[1])
+        for r in range(len(table_data)):
+            for c in range(len(table_data[r])):
+                print(f"{table_data[r][c]:,.2f}", end="\t\t")
+            print()
 import json
 
 
