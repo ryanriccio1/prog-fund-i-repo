@@ -1,0 +1,5 @@
+({'First': 'Ryan', 'Last': 'Riccio'}, {'Id': '2059123', 'GPA': '3.98', 'Grade': '100.00%', 'Full Time': True})
+({'First': 'John', 'Last': 'Smith'}, {'Id': '2089325', 'GPA': '4.00', 'Grade': '99.80%', 'Full Time': True})
+({'First': 'Davis', 'Last': 'Reinert'}, {'Id': '2172349', 'GPA': '3.01', 'Grade': '97.60%', 'Full Time': True})
+({'First': 'Dave', 'Last': 'Larmon'}, {'Id': '2781234', 'GPA': '2.99', 'Grade': '86.50%', 'Full Time': False})
+({'First': 'Bryce', 'Last': 'Mease'}, {'Id': '2824322', 'GPA': '4.21', 'Grade': '96.21%', 'Full Time': True})
